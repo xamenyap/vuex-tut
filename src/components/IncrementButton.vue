@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<span></span><br/>
+		<input type="button" value="Increase" @click="increaseCount"><br/>
+		<span>{{count}}</span><br/>
 	</div>
 </template>
 
@@ -8,8 +9,14 @@
 	export default {
 		data() {
 			return {
-				message: 'Hello'
+				count: 0
 			};
+		},
+		methods: {
+			increaseCount() {
+				this.$store.commit('increment');
+				this.count++;
+			}
 		}
 	}
-</script
+</script>
